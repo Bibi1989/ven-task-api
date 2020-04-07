@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
-
 const Cars = require("../models/carsModel");
+const json = require("../cars.json");
 
 /* GET home page. */
 router.get("/", async (req, res, next) => {
@@ -13,7 +13,7 @@ router.get("/", async (req, res, next) => {
     return res.status(404).json({ error: "Page should not be less than 1" });
 
   try {
-    const cars = await Cars.find().skip(limit).limit(noOfLimit);
+    const cars = await Cars.find().skip(limit).limit(10);
     res.json({ pages: page, limits: noOfLimit, cars });
   } catch (error) {
     next(error);

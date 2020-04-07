@@ -15,6 +15,10 @@ mongoose
   .then(() => console.log("Database connected"))
   .catch((err) => console.log("Error", err));
 
+const v = require("./parsing");
+
+console.log(v);
+
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 
